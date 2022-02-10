@@ -5,7 +5,7 @@ export default function NavList() {
   return (
     <nav>
       <NavLink
-        to="films"
+        to="tickets"
         className={({ isActive }) => (isActive ? activeClassName : '')}
       >
         Tickets

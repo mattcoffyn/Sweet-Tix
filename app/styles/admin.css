@@ -1,0 +1,28 @@
+.admin-page {
+  margin-top: var(--headerHeight);
+}
+
+.admin-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--cardBackground);
+  padding: 0 1rem;
+}
+
+.admin-tabs h2 {
+  margin: 0;
+  color: var(--cardTextColour);
+}
+
+.admin-tabs nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.admin-tabs nav a {
+  text-decoration: none;
+  color: var(--cardTextColour);
+}

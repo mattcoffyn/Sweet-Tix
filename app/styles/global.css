@@ -1,17 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400|Quicksand:400|Bungee:400');
-
-@font-face {
-  font-family: Drogowskaz;
-  src: url('/fonts/Drogowskaz.ttf') format('truetype');
-}
-@font-face {
-  font-family: EestiDisplay;
-  src: url('/fonts/GT-Eesti-Display-Regular-Trial.woff2') format('woff2');
-}
-@font-face {
-  font-family: EestiText;
-  src: url('/fonts/GT-Eesti-Text-Book-Trial.woff2') format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   /* Colours */
@@ -34,14 +21,32 @@
   --disabled: var(--grey);
 
   --bodyBackground: var(--offWhite);
-  --headerBackground: var(--blue);
+  --headerBackground: var(--offWhite);
   --cardBackground: var(--blue);
   --blockquoteBackgroundColour: var(--white);
   --footerBackground: var(--black);
   --buttonBackgroundColour: var(--white);
 
   --line: solid 1px var(--blue);
-  --outline: var(--primary);
+  --outlineColour: var(--blue);
+
+  /* Typography */
+  --headingFont: 'IBM Plex Mono', monospace;
+  --bodyFont: 'IBM Plex Mono', monospace;
+  --baseFontSize: 100%;
+  --h1: 3.052rem;
+  --h2: 2.441rem;
+  --h3: 1.953rem;
+  --h4: 1.563rem;
+  --h5: 1.25rem;
+  --smallText: 0.8rem;
+  --headingTextColour: var(--blue);
+  --headerTextColour: var(--blue);
+  --footerTextColour: var(--offWhite);
+  --textColour: var(--black);
+  --cardTextColour: var(--offWhite);
+  --blockquoteTextColour: var(--textColour);
+  --preOpacity: 0.7;
 
   /* Positioning */
   --containerPadding: 2.5%;
@@ -57,24 +62,6 @@
     0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-
-  /* Typography */
-  --headingFont: 'Quicksand', monospace;
-  --bodyFont: 'IBM Plex Sans', sans-serif;
-  --baseFontSize: 100%;
-  --h1: 3.052rem;
-  --h2: 2.441rem;
-  --h3: 1.953rem;
-  --h4: 1.563rem;
-  --h5: 1.25rem;
-  --smallText: 0.8rem;
-  --headingTextColour: var(--blue);
-  --headerTextColour: var(--offWhite);
-  --footerTextColour: var(--offWhite);
-  --textColour: var(--black);
-  --cardTextColour: var(--offWhite);
-  --blockquoteTextColour: var(--textColour);
-  --preOpacity: 0.7;
 }
 
 @media only screen and (min-width: 500px) {
@@ -195,7 +182,7 @@ label {
 input:focus,
 textarea:focus,
 button:focus {
-  outline: 3px solid var(--outline);
+  outline-color: 3px solid var(--outlineColour);
   border-color: var(--white);
 }
 
@@ -268,7 +255,7 @@ button.small {
 /* Layouts */
 
 .layout {
-  padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+  padding: calc(1rem + var(--headerHeight)) var(--containerPadding);
 }
 
 .grid {
@@ -316,7 +303,7 @@ header {
   background-color: var(--headerBackground);
   color: var(--headerTextColour);
   height: var(--headerHeight);
-  box-shadow: var(--shadow-2);
+  border-bottom: 2px solid var(--outlineColour);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -338,11 +325,15 @@ header nav a + a {
   margin-left: 12px;
 }
 
-header nav .active-link {
+.active-link {
   color: var(--primary);
 }
 
-.fake-logo {
+.logo {
+  text-decoration: none;
+}
+
+.logo h1 {
   color: var(--headerTextColour);
   font-size: var(--baseFontSize);
   margin: 0;
@@ -397,71 +388,75 @@ footer p {
   gap: 2rem;
 }
 
-.theme--dark {
-  --bodyBackground: var(--black);
-  --textColour: var(--offWhite);
-  --headingTextColour: var(--orange);
-  --blockquoteBackgroundColour: var(--offWhite);
-  --blockquoteTextColour: var(--blue);
-  --headerBackground: var(--reallyBlack);
-  --footerBackground: var(--reallyBlack);
-  --buttonBackgroundColour: var(--offWhite);
-  --line: solid 1px var(--yellow);
+.page-heading {
+  margin: 0;
 }
 
-.oled {
-  --black: #000;
-  --reallyBlack: #000;
-  --textColour: var(--offWhite);
-  --headingTextColour: var(--orange);
-  --blockquoteBackgroundColour: var(--grey);
-  --blockquoteTextColour: var(--black);
-  --cardBackground: var(--grey);
-  --cardTextColour: var(--black);
-  --buttonBackgroundColour: var(--offWhite);
-  --line: solid 1px var(--yellow);
-}
+/* .theme--dark { */
+  /* --bodyBackground: var(--black); */
+  /* --textColour: var(--offWhite); */
+  /* --headingTextColour: var(--orange); */
+  /* --blockquoteBackgroundColour: var(--offWhite); */
+  /* --blockquoteTextColour: var(--blue); */
+  /* --headerBackground: var(--reallyBlack); */
+  /* --footerBackground: var(--reallyBlack); */
+  /* --buttonBackgroundColour: var(--offWhite); */
+  /* --line: solid 1px var(--yellow); */
+/* } */
 
-.theme--pastel {
+/* .oled { */
+  /* --black: #000; */
+  /* --reallyBlack: #000; */
+  /* --textColour: var(--offWhite); */
+  /* --headingTextColour: var(--orange); */
+  /* --blockquoteBackgroundColour: var(--grey); */
+  /* --blockquoteTextColour: var(--black); */
+  /* --cardBackground: var(--grey); */
+  /* --cardTextColour: var(--black); */
+  /* --buttonBackgroundColour: var(--offWhite); */
+  /* --line: solid 1px var(--yellow); */
+/* } */
+
+/* .theme--pastel { */
   /* Colours */
-  --dark: #001858;
-  --light: #fef6ef;
-  --pink: #f582ae;
-  --lightBlue: #8bd3dd;
-  --beige: #f3d2c1;
+  /* --dark: #001858; */
+  /* --light: #fef6ef; */
+  /* --pink: #f582ae; */
+  /* --lightBlue: #8bd3dd; */
+  /* --beige: #f3d2c1; */
+/*  */
+  /* --primary: var(--pink); */
+  /* --success: var(--pink); */
+  /* --warning: var(--beige); */
+  /* --error: var(--dark); */
+  /* --info: var(--blue); */
+  /* --disabled: var(--grey); */
+/*  */
+  /* --bodyBackground: var(--light); */
+  /* --headerBackground: var(--beige); */
+  /* --cardBackground: var(--pink); */
+  /* --blockquoteBackgroundColour: var(--lightBlue); */
+  /* --footerBackground: var(--dark); */
+  /* --buttonBackgroundColour: var(--lightBlue); */
 
-  --primary: var(--pink);
-  --success: var(--pink);
-  --warning: var(--beige);
-  --error: var(--dark);
-  --info: var(--blue);
-  --disabled: var(--grey);
+  /* --line: solid 3px var(--dark); */
+  /* --outlineColour: var(--primary); */
 
-  --bodyBackground: var(--light);
-  --headerBackground: var(--beige);
-  --cardBackground: var(--pink);
-  --blockquoteBackgroundColour: var(--lightBlue);
-  --footerBackground: var(--dark);
-  --buttonBackgroundColour: var(--lightBlue);
-
-  --line: solid 3px var(--dark);
-  --outline: var(--primary);
-
-  --shadow-1: 0 2px 2px 0 rgb(0 0 0 / 0.4), 0 2px 1px -1px rgb(0 0 0 / 0.4);
-  --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-3: 0 10px 2px -3px rgb(0 0 0 / 0.3), 0 4px 1px -4px rgb(0 0 0 / 0.3);
-  --shadow-4: 0 20px 5px -5px rgb(0 0 0 / 0.3), 0 8px 3px -6px rgb(0 0 0 / 0.3);
-  --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.3);
+  /* --shadow-1: 0 2px 2px 0 rgb(0 0 0 / 0.4), 0 2px 1px -1px rgb(0 0 0 / 0.4); */
+  /* --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3); */
+  /* --shadow-3: 0 10px 2px -3px rgb(0 0 0 / 0.3), 0 4px 1px -4px rgb(0 0 0 / 0.3); */
+  /* --shadow-4: 0 20px 5px -5px rgb(0 0 0 / 0.3), 0 8px 3px -6px rgb(0 0 0 / 0.3); */
+  /* --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.3); */
 
   /* Typography */
-  --bodyFont: 'EestiText', sans-serif;
-  --headingFont: 'Drogowskaz', sans-serif;
-  --headingTextColour: var(--dark);
-  --headerTextColour: var(--dark);
-  --footerTextColour: var(--dark);
-  --textColour: var(--dark);
-  --cardTextColour: var(--light);
-  --blockquoteTextColour: var(--textColour);
-  --borderRadius: 0;
-  --buttonRadius: 3px;
+  /* --bodyFont: 'EestiText', sans-serif; */
+  /* --headingFont: 'Drogowskaz', sans-serif; */
+  /* --headingTextColour: var(--dark); */
+  /* --headerTextColour: var(--dark); */
+  /* --footerTextColour: var(--dark); */
+  /* --textColour: var(--dark); */
+  /* --cardTextColour: var(--light); */
+  /* --blockquoteTextColour: var(--textColour); */
+  /* --borderRadius: 0; */
+  /* --buttonRadius: 3px; */
 }

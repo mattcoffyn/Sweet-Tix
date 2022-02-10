@@ -1,4 +1,5 @@
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -10,7 +11,7 @@ import {
 import type { MetaFunction, LinksFunction } from 'remix';
 
 import normalize from '~/styles/normalize.css';
-import style from '~/styles/style.css';
+import global from '~/styles/global.css';
 import NavList from '~/components/nav';
 
 export const links: LinksFunction = () => {
@@ -21,7 +22,7 @@ export const links: LinksFunction = () => {
     },
     {
       rel: 'stylesheet',
-      href: style,
+      href: global,
     },
   ];
 };
@@ -70,10 +71,12 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
     <>
       <header>
-        <h1 className="fake-logo">Sweet Tix</h1>
+        <Link to="/" className="logo">
+          <h1>Sweet Tix</h1>
+        </Link>
         <NavList />
       </header>
-      <main className="layout">{children}</main>
+      <main>{children}</main>
     </>
   );
 }
