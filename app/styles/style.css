@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400|Quicksand:400|Bungee:400');
+
+@font-face {
+  font-family: Drogowskaz;
+  src: url('/fonts/Drogowskaz.ttf') format('truetype');
+}
+@font-face {
+  font-family: EestiDisplay;
+  src: url('/fonts/GT-Eesti-Display-Regular-Trial.woff2') format('woff2');
+}
+@font-face {
+  font-family: EestiText;
+  src: url('/fonts/GT-Eesti-Text-Book-Trial.woff2') format('woff2');
+}
+
+:root {
+  /* Colours */
+  --black: #292a2e;
+  --reallyBlack: #222;
+  --white: #ffffff;
+  --offWhite: #eeefe9;
+  --grey: #9a9a9a;
+  --blue: #315b7b;
+  --green: #0d703f;
+  --red: #e6423a;
+  --orange: #f07032;
+  --yellow: #f1b73a;
+
+  --primary: var(--orange);
+  --success: var(--green);
+  --warning: var(--yellow);
+  --error: var(--red);
+  --info: var(--blue);
+  --disabled: var(--grey);
+
+  --bodyBackground: var(--offWhite);
+  --headerBackground: var(--blue);
+  --cardBackground: var(--blue);
+  --blockquoteBackgroundColour: var(--white);
+  --footerBackground: var(--black);
+  --buttonBackgroundColour: var(--white);
+
+  --line: solid 1px var(--blue);
+  --outline: var(--primary);
+
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 3rem;
+  --borderRadius: 5px;
+  --buttonRadius: 10px;
+
+  /* Elevation*/
+  --shadow-1: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-3: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-4: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* Typography */
+  --headingFont: 'Quicksand', monospace;
+  --bodyFont: 'IBM Plex Sans', sans-serif;
+  --baseFontSize: 100%;
+  --h1: 3.052rem;
+  --h2: 2.441rem;
+  --h3: 1.953rem;
+  --h4: 1.563rem;
+  --h5: 1.25rem;
+  --smallText: 0.8rem;
+  --headingTextColour: var(--blue);
+  --headerTextColour: var(--offWhite);
+  --footerTextColour: var(--offWhite);
+  --textColour: var(--black);
+  --cardTextColour: var(--offWhite);
+  --blockquoteTextColour: var(--textColour);
+  --preOpacity: 0.7;
+}
+
+@media only screen and (min-width: 500px) {
+  :root {
+    --baseFontSize: 112.5%;
+  }
+}
+
+/* Base */
+
+html {
+  font-size: var(--baseFontSize);
+  box-sizing: border-box;
+} /*18px*/
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.75;
+  background: var(--bodyBackground);
+  color: var(--textColour);
+}
+
+/* Typography */
+
+p {
+  margin-bottom: 1rem;
+  max-width: 45em;
+}
+
+p a {
+  color: var(--textColour);
+  text-decoration: none;
+  border-bottom: solid 2px var(--primary);
+}
+
+blockquote a {
+  color: var(--blockquoteTextColour);
+  text-decoration: none;
+  border-bottom: solid 2px var(--primary);
+}
+
+p a:hover,
+blockquote a:hover {
+  color: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--headingTextColour);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+small,
+.text_small {
+  font-size: var(--smallText);
+}
+
+pre {
+  opacity: var(--preOpacity);
+  font-size: var(--smallText);
+}
+
+blockquote {
+  background: var(--blockquoteBackgroundColour);
+  color: var(--blockquoteTextColour);
+  margin: 1em;
+  padding: 2em;
+  box-shadow: var(--shadow-3);
+  border-radius: var(--borderRadius);
+}
+
+hr {
+  border-top: var(--line);
+  border-bottom: none;
+}
+
+/* Forms */
+
+label {
+  display: block;
+  font-size: var(--smallText);
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid var(--outline);
+  border-color: var(--white);
+}
+
+input,
+textarea {
+  background: var(--buttonBackgroundColour);
+  padding: 4px 6px;
+  border: var(--line);
+  border-radius: var(--borderRadius);
+}
+
+::placeholder {
+  color: var(--disabled);
+}
+
+textarea {
+  width: 100%;
+  height: 5rem;
+}
+
+select {
+  border: var(--line);
+  background: var(--bodyBackground);
+}
+
+button,
+input[type='button'] {
+  --buttonTextColour: var(--info);
+  appearance: none;
+  border: var(--line);
+  background-color: var(--buttonBackgroundColour);
+  color: var(--buttonTextColour);
+  border-radius: var(--buttonRadius);
+  padding: 5px 25px;
+  margin: 0 5px;
+  box-shadow: var(--shadow-1);
+  transition: 0.2s ease-out box-shadow;
+}
+
+button:hover {
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+}
+
+button[disabled] {
+  opacity: 0.4;
+}
+
+button.submit {
+  --buttonBackgroundColour: var(--success);
+  --buttonTextColour: var(--white);
+  background-color: var(--buttonBackgroundColour);
+  color: var(--buttonTextColour);
+  border-color: var(--buttonBackgroundColour);
+}
+
+button.cancel {
+  --buttonBackgroundColour: var(--error);
+  --buttonTextColour: var(--white);
+  background-color: var(--buttonBackgroundColour);
+  color: var(--buttonTextColour);
+  border-color: var(--buttonBackgroundColour);
+}
+
+button.small {
+  font-size: var(--smallText);
+  padding: 4px 15px;
+}
+
+/* Layouts */
+
+.layout {
+  padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+}
+
+.grid {
+  --gridCols: 2;
+  display: block;
+  grid-template-columns: repeat(var(--gridCols), 1fr);
+}
+@media only screen and (min-width: 500px) {
+  .grid {
+    display: grid;
+  }
+}
+
+.cols-3 {
+  --gridCols: 3;
+}
+
+.grid--split {
+  grid-template-columns: 33% 67%;
+  gap: 2rem;
+}
+
+.flex {
+  --justifyContent: space-between;
+  display: block;
+  justify-content: var(--justifyContent);
+}
+@media only screen and (min-width: 500px) {
+  .flex {
+    display: flex;
+  }
+}
+
+.flex-around {
+  --justifyContent: space-around;
+}
+
+/* Components */
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: var(--headerBackground);
+  color: var(--headerTextColour);
+  height: var(--headerHeight);
+  box-shadow: var(--shadow-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--containerPadding);
+}
+
+header nav a {
+  color: var(--headerTextColour);
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+  text-decoration: none;
+}
+
+header nav a + a {
+  margin-left: 12px;
+}
+
+header nav .active-link {
+  color: var(--primary);
+}
+
+.fake-logo {
+  color: var(--headerTextColour);
+  font-size: var(--baseFontSize);
+  margin: 0;
+}
+
+footer {
+  background: var(--footerBackground);
+  color: var(--footerTextColour);
+  width: 100%;
+  padding: 1rem var(--containerPadding);
+  min-height: 13rem;
+}
+footer nav {
+  margin-top: 1rem;
+}
+
+footer a {
+  color: var(--footerTextColour);
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+footer p {
+  margin-top: 5rem;
+  max-width: none;
+}
+
+.card {
+  background: var(--cardBackground);
+  color: var(--cardTextColour);
+  margin: 1em;
+  padding: 2em;
+  box-shadow: var(--shadow-4);
+  border-radius: var(--borderRadius);
+}
+
+.card h3 {
+  color: var(--cardTextColour);
+}
+
+.card > *:first-child {
+  margin-top: 0;
+}
+
+.card > *:last-child {
+  margin-bottom: 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  gap: 2rem;
+}
+
+.theme--dark {
+  --bodyBackground: var(--black);
+  --textColour: var(--offWhite);
+  --headingTextColour: var(--orange);
+  --blockquoteBackgroundColour: var(--offWhite);
+  --blockquoteTextColour: var(--blue);
+  --headerBackground: var(--reallyBlack);
+  --footerBackground: var(--reallyBlack);
+  --buttonBackgroundColour: var(--offWhite);
+  --line: solid 1px var(--yellow);
+}
+
+.oled {
+  --black: #000;
+  --reallyBlack: #000;
+  --textColour: var(--offWhite);
+  --headingTextColour: var(--orange);
+  --blockquoteBackgroundColour: var(--grey);
+  --blockquoteTextColour: var(--black);
+  --cardBackground: var(--grey);
+  --cardTextColour: var(--black);
+  --buttonBackgroundColour: var(--offWhite);
+  --line: solid 1px var(--yellow);
+}
+
+.theme--pastel {
+  /* Colours */
+  --dark: #001858;
+  --light: #fef6ef;
+  --pink: #f582ae;
+  --lightBlue: #8bd3dd;
+  --beige: #f3d2c1;
+
+  --primary: var(--pink);
+  --success: var(--pink);
+  --warning: var(--beige);
+  --error: var(--dark);
+  --info: var(--blue);
+  --disabled: var(--grey);
+
+  --bodyBackground: var(--light);
+  --headerBackground: var(--beige);
+  --cardBackground: var(--pink);
+  --blockquoteBackgroundColour: var(--lightBlue);
+  --footerBackground: var(--dark);
+  --buttonBackgroundColour: var(--lightBlue);
+
+  --line: solid 3px var(--dark);
+  --outline: var(--primary);
+
+  --shadow-1: 0 2px 2px 0 rgb(0 0 0 / 0.4), 0 2px 1px -1px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-3: 0 10px 2px -3px rgb(0 0 0 / 0.3), 0 4px 1px -4px rgb(0 0 0 / 0.3);
+  --shadow-4: 0 20px 5px -5px rgb(0 0 0 / 0.3), 0 8px 3px -6px rgb(0 0 0 / 0.3);
+  --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.3);
+
+  /* Typography */
+  --bodyFont: 'EestiText', sans-serif;
+  --headingFont: 'Drogowskaz', sans-serif;
+  --headingTextColour: var(--dark);
+  --headerTextColour: var(--dark);
+  --footerTextColour: var(--dark);
+  --textColour: var(--dark);
+  --cardTextColour: var(--light);
+  --blockquoteTextColour: var(--textColour);
+  --borderRadius: 0;
+  --buttonRadius: 3px;
+}
