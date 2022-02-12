@@ -1,4 +1,4 @@
-import { LoaderFunction, Outlet, useLoaderData } from 'remix';
+import { Link, LoaderFunction, Outlet, useLoaderData } from 'remix';
 import { supabase } from '~/lib/supabase-client';
 import type { Film, Show } from '~/types/film';
 import styles from '~/styles/tickets.css';
@@ -9,50 +9,81 @@ export function links() {
 
 export const loader: LoaderFunction = async () => {
   const today = new Date().toDateString();
-  console.log('loader');
 
   const { data } = await supabase
-    .from<Film>('films')
+    .from<Show>('shows')
     .select(
-      'id, title, description, length, rating, release_date, shows ( screen, time, date ) '
-    );
+      'id, time, date, film ( id, title, rating ), screen (id, screen_num) '
+    )
+    .order('time', { ascending: true });
 
-  let films = data?.filter((film) => {
-    let todaysShows = film.shows?.filter((show) => {
-      if (new Date(show.date).toDateString() === today) {
-        return show;
-      }
-    });
+  let screen1: Show[] = [];
+  let screen2: Show[] = [];
+  let screen3: Show[] = [];
 
-    if (todaysShows.length > 0) {
-      return film;
+  data?.filter((show) => {
+    // if (new Date(show.date).toDateString() === today) {
+    if (show.screen.screen_num === 1) {
+      screen1.push(show);
     }
+    if (show.screen.screen_num === 2) {
+      screen2.push(show);
+    }
+    if (show.screen.screen_num === 3) {
+      screen3.push(show);
+    }
+    // }
   });
-  return films;
-};
 
+  const shows = { screen1, screen2, screen3 };
+  return shows;
+};
 export default function () {
-  const films: Film[] = useLoaderData();
+  const { screen1, screen2, screen3 } = useLoaderData();
 
   return (
-    <div className="film-selector layout">
-      <h2 className="page-heading">Tickets</h2>
-      <div className="grid grid--split">
+    <div className="layout">
+      <div>
         <aside>
-          {films.map((film) => (
-            <div key={film.id} className="card">
-              <p>{film.title}</p>
-              {film.shows.map((show) => (
-                <div>
-                  <p>Time: {show.time}</p>
-                  <p>Screen: {show.screen}</p>
-                </div>
+          <div>
+            <h3>Screen 1</h3>
+            <ul>
+              {screen1.map((show: Show) => (
+                <li>
+                  <Link to={show.id}>
+                    {show.time} - {show.film.title} -{' '}
+                    {show.film.rating.toUpperCase()}
+                  </Link>
+                </li>
               ))}
-            </div>
-          ))}
+            </ul>
+            <h3>Screen 2</h3>
+            <ul>
+              {screen2.map((show: Show) => (
+                <li>
+                  <Link to={show.id}>
+                    {show.time} - {show.film.title} -{' '}
+                    {show.film.rating.toUpperCase()}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3>Screen 3</h3>
+            <ul>
+              {screen3.map((show: Show) => (
+                <li>
+                  <Link to={show.id}>
+                    {show.time} - {show.film.title} -{' '}
+                    {show.film.rating.toUpperCase()}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </aside>
-
-        <Outlet />
+        <section className="ticket-outlet">
+          <Outlet />
+        </section>
       </div>
     </div>
   );

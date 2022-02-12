@@ -255,7 +255,9 @@ button.small {
 /* Layouts */
 
 .layout {
-  padding: calc(1rem + var(--headerHeight)) var(--containerPadding);
+  padding: calc(1rem + var(--headerHeight)) var(--containerPadding) 0;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .grid {
@@ -274,8 +276,8 @@ button.small {
 }
 
 .grid--split {
-  grid-template-columns: 33% 67%;
-  gap: 2rem;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
 }
 
 .flex {
@@ -364,7 +366,7 @@ footer p {
 .card {
   background: var(--cardBackground);
   color: var(--cardTextColour);
-  margin: 1em;
+  /* margin: 1em; */
   padding: 2em;
   box-shadow: var(--shadow-4);
   border-radius: var(--borderRadius);
@@ -393,70 +395,70 @@ footer p {
 }
 
 /* .theme--dark { */
-  /* --bodyBackground: var(--black); */
-  /* --textColour: var(--offWhite); */
-  /* --headingTextColour: var(--orange); */
-  /* --blockquoteBackgroundColour: var(--offWhite); */
-  /* --blockquoteTextColour: var(--blue); */
-  /* --headerBackground: var(--reallyBlack); */
-  /* --footerBackground: var(--reallyBlack); */
-  /* --buttonBackgroundColour: var(--offWhite); */
-  /* --line: solid 1px var(--yellow); */
+/* --bodyBackground: var(--black); */
+/* --textColour: var(--offWhite); */
+/* --headingTextColour: var(--orange); */
+/* --blockquoteBackgroundColour: var(--offWhite); */
+/* --blockquoteTextColour: var(--blue); */
+/* --headerBackground: var(--reallyBlack); */
+/* --footerBackground: var(--reallyBlack); */
+/* --buttonBackgroundColour: var(--offWhite); */
+/* --line: solid 1px var(--yellow); */
 /* } */
 
 /* .oled { */
-  /* --black: #000; */
-  /* --reallyBlack: #000; */
-  /* --textColour: var(--offWhite); */
-  /* --headingTextColour: var(--orange); */
-  /* --blockquoteBackgroundColour: var(--grey); */
-  /* --blockquoteTextColour: var(--black); */
-  /* --cardBackground: var(--grey); */
-  /* --cardTextColour: var(--black); */
-  /* --buttonBackgroundColour: var(--offWhite); */
-  /* --line: solid 1px var(--yellow); */
+/* --black: #000; */
+/* --reallyBlack: #000; */
+/* --textColour: var(--offWhite); */
+/* --headingTextColour: var(--orange); */
+/* --blockquoteBackgroundColour: var(--grey); */
+/* --blockquoteTextColour: var(--black); */
+/* --cardBackground: var(--grey); */
+/* --cardTextColour: var(--black); */
+/* --buttonBackgroundColour: var(--offWhite); */
+/* --line: solid 1px var(--yellow); */
 /* } */
 
 /* .theme--pastel { */
-  /* Colours */
-  /* --dark: #001858; */
-  /* --light: #fef6ef; */
-  /* --pink: #f582ae; */
-  /* --lightBlue: #8bd3dd; */
-  /* --beige: #f3d2c1; */
+/* Colours */
+/* --dark: #001858; */
+/* --light: #fef6ef; */
+/* --pink: #f582ae; */
+/* --lightBlue: #8bd3dd; */
+/* --beige: #f3d2c1; */
 /*  */
-  /* --primary: var(--pink); */
-  /* --success: var(--pink); */
-  /* --warning: var(--beige); */
-  /* --error: var(--dark); */
-  /* --info: var(--blue); */
-  /* --disabled: var(--grey); */
+/* --primary: var(--pink); */
+/* --success: var(--pink); */
+/* --warning: var(--beige); */
+/* --error: var(--dark); */
+/* --info: var(--blue); */
+/* --disabled: var(--grey); */
 /*  */
-  /* --bodyBackground: var(--light); */
-  /* --headerBackground: var(--beige); */
-  /* --cardBackground: var(--pink); */
-  /* --blockquoteBackgroundColour: var(--lightBlue); */
-  /* --footerBackground: var(--dark); */
-  /* --buttonBackgroundColour: var(--lightBlue); */
+/* --bodyBackground: var(--light); */
+/* --headerBackground: var(--beige); */
+/* --cardBackground: var(--pink); */
+/* --blockquoteBackgroundColour: var(--lightBlue); */
+/* --footerBackground: var(--dark); */
+/* --buttonBackgroundColour: var(--lightBlue); */
 
-  /* --line: solid 3px var(--dark); */
-  /* --outlineColour: var(--primary); */
+/* --line: solid 3px var(--dark); */
+/* --outlineColour: var(--primary); */
 
-  /* --shadow-1: 0 2px 2px 0 rgb(0 0 0 / 0.4), 0 2px 1px -1px rgb(0 0 0 / 0.4); */
-  /* --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3); */
-  /* --shadow-3: 0 10px 2px -3px rgb(0 0 0 / 0.3), 0 4px 1px -4px rgb(0 0 0 / 0.3); */
-  /* --shadow-4: 0 20px 5px -5px rgb(0 0 0 / 0.3), 0 8px 3px -6px rgb(0 0 0 / 0.3); */
-  /* --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.3); */
+/* --shadow-1: 0 2px 2px 0 rgb(0 0 0 / 0.4), 0 2px 1px -1px rgb(0 0 0 / 0.4); */
+/* --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3); */
+/* --shadow-3: 0 10px 2px -3px rgb(0 0 0 / 0.3), 0 4px 1px -4px rgb(0 0 0 / 0.3); */
+/* --shadow-4: 0 20px 5px -5px rgb(0 0 0 / 0.3), 0 8px 3px -6px rgb(0 0 0 / 0.3); */
+/* --shadow-5: 0 25px 50px -12px rgb(0 0 0 / 0.3); */
 
-  /* Typography */
-  /* --bodyFont: 'EestiText', sans-serif; */
-  /* --headingFont: 'Drogowskaz', sans-serif; */
-  /* --headingTextColour: var(--dark); */
-  /* --headerTextColour: var(--dark); */
-  /* --footerTextColour: var(--dark); */
-  /* --textColour: var(--dark); */
-  /* --cardTextColour: var(--light); */
-  /* --blockquoteTextColour: var(--textColour); */
-  /* --borderRadius: 0; */
-  /* --buttonRadius: 3px; */
-}
+/* Typography */
+/* --bodyFont: 'EestiText', sans-serif; */
+/* --headingFont: 'Drogowskaz', sans-serif; */
+/* --headingTextColour: var(--dark); */
+/* --headerTextColour: var(--dark); */
+/* --footerTextColour: var(--dark); */
+/* --textColour: var(--dark); */
+/* --cardTextColour: var(--light); */
+/* --blockquoteTextColour: var(--textColour); */
+/* --borderRadius: 0; */
+/* --buttonRadius: 3px; */
+/* } */

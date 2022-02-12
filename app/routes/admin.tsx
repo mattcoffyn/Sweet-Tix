@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'remix';
 import { Outlet } from 'remix';
 import styles from '~/styles/admin.css';
 

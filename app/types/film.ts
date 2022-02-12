@@ -5,11 +5,18 @@ export type Film = {
   length: number;
   rating: string;
   release_date: string;
-  shows: { screen: number; date: string; time: string }[];
+};
+
+export type Screen = {
+  id: string;
+  seats: number;
+  screen_num: number;
 };
 
 export type Show = {
-  screen: number;
+  id: string;
   date: string;
   time: string;
+  film: Film;
+  screen: Screen;
 };

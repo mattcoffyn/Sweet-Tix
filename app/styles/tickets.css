@@ -1,3 +1,24 @@
-.film-selector {
-  background-color: var(--offWhite);
+.ticket-grid {
+  min-height: calc(100vh - var(--headerHeight) - 1rem);
+}
+
+.ticket-outlet {
+  min-height: 100%;
+}
+
+.film-link {
+  color: var(--cardTextColour);
+  text-decoration: none;
+  margin: 0;
+}
+
+.film-link div {
+  background: var(--primary);
+  padding: 0 1rem;
+  border-radius: 5px;
+  box-shadow: var(--shadow-5);
+}
+
+.film-link p {
+  margin: 0;
 }
